@@ -1,0 +1,21 @@
+{% load i18n %}
+
+<h4>Stock List</h4>
+
+<script>
+    async function JCreateList(){
+        response = await fetch( "{% url 'plugin:stocky:creator' 122 %}");
+        location.reload();
+    }
+    </script>
+
+<div class='alert alert-block alert-info'>
+    To create list of all items in this stocklocation press Button "Generate List"
+</div>
+
+
+<button type='button' class='btn btn-dark' onclick="JCreateList()" title='{% trans "Transfer PO into Mouser shopping cart" %}'>
+    <span class='fas fa-redo-alt'></span> {% trans "Transfer PO" %}
+</button>
+
+{{ plugin.value }}
